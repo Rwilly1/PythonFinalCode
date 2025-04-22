@@ -28,31 +28,22 @@ A dynamic, secure portfolio website built with Flask, featuring photography gall
 - Python 3.x
 - pip (Python package manager)
 - Virtual environment (recommended)
-- Git LFS (for video files)
 
 ## 🚀 Installation
 
-1. **Install Git LFS**
+1. **Clone the repository**
    ```bash
-   # macOS
-   brew install git-lfs
-
-   # Windows
-   # Download from https://git-lfs.com
-   ```
-
-2. **Clone the repository with LFS**
-   ```bash
-   # Initialize Git LFS
-   git lfs install
-
-   # Clone the repository
    git clone https://github.com/Rwilly1/PythonFinalCode.git
    cd PythonFinalCode
-   
-   # Pull LFS files
-   git lfs pull
    ```
+
+2. **Download media files**
+   - Download the media package from: [Media Files Package]
+   - Extract the contents to:
+     ```
+     static/Images/  (for all images)
+     static/video/   (for video content)
+     ```
 
 3. **Create and activate virtual environment**
    ```bash
@@ -70,16 +61,7 @@ A dynamic, secure portfolio website built with Flask, featuring photography gall
    pip install -r requirements.txt
    ```
 
-5. **Set up media files**
-   - Create directories:
-     ```bash
-     mkdir -p static/Images/photography
-     mkdir -p static/Images/fashion
-     mkdir -p static/video
-     ```
-   - Add your images to the respective directories
-
-6. **Run the application**
+5. **Run the application**
    ```bash
    python app.py
    ```
