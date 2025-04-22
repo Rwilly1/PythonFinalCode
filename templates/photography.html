@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography - Remington Williams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-gallery">
+            <div class="banner-container">
+                <img src="{{ url_for('static', filename='Images/Banner.jpg') }}" alt="Portfolio Banner" class="banner-image">
+            </div>
+            <h1>Remington Williams</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Me</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
+                        <a href="{{ url_for('software_development') }}">Software Development</a>
+                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
+                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('photography') }}">Photography</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
+                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
+                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
+                    </div>
+                </li>
+                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% if section == 'cookbook' %}
+        <section class="cookbook-section">
+            <h2>Cookbook Preview</h2>
+            <div class="cookbook-content">
+                <div class="cookbook-image">
+                    <img src="{{ url_for('static', filename='Images/cookbookpreviewimage.png') }}" alt="Cookbook Preview" class="recipe-photo">
+                </div>
+                <div class="cookbook-text">
+                    <p>Over the span of five years in my New York City apartment, I've carefully developed and refined each recipe in this collection. What began as a creative outlet evolved into an intimate practice—where cooking became another medium for storytelling, much like fashion or photography. Each dish is rooted in memory and made with intention, blending flavor, form, and feeling. <br>
+                        <br>
+                        This past year, I've focused on capturing every recipe through my lens, ensuring each image reflects the same attention to detail I bring to my work in design. The result is a visual and culinary narrative that ties together my background in fashion with my love of food—both expressions of texture, color, and composition.<br>
+                        <br>
+                        This preview offers a glimpse of my passionfruit chia pudding, one of many vibrant, handcrafted creations that will be featured in the upcoming cookbook.
+                        </p>
+                </div>
+            </div>
+        </section>
+        {% elif section == '35mm' %}
+        <section class="mm35-section">
+            <div class="flipbook-container">
+                <div class="flipbook-nav">
+                    <button id="prevBtn" class="nav-btn">&lt;</button>
+                    <div class="image-container">
+                        <img id="currentImage" src="{{ url_for('static', filename='Images/35mm/000036210021.jpg') }}" alt="35mm Photography">
+                    </div>
+                    <button id="nextBtn" class="nav-btn">&gt;</button>
+                </div>
+            </div>
+        </section>
+        {% elif section == 'polaroid' %}
+        <section class="polaroid-section">
+            <div class="flipbook-container">
+                <div class="flipbook-nav">
+                    <button id="prevBtn" class="nav-btn">&lt;</button>
+                    <div class="image-container">
+                        <img id="currentImage" src="{{ url_for('static', filename='Images/photography/Scan 27 copy 3.jpeg') }}" alt="Photography Image">
+                    </div>
+                    <button id="nextBtn" class="nav-btn">&gt;</button>
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <section class="photography-overview">
+            <h2>Photography Portfolio</h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <h3>Polaroid</h3>
+                    <img src="{{ url_for('static', filename='Images/photolanding/polariodland.png') }}" alt="Polaroid Preview">
+                    <p>A collection of intimate moments captured on instant film, exploring the unique aesthetic and immediacy of Polaroid photography.</p>
+                    <a href="{{ url_for('polaroid') }}" class="learn-more">View Gallery →</a>
+                </div>
+                <div class="photo-card">
+                    <h3>35mm Film</h3>
+                    <img src="{{ url_for('static', filename='Images/photolanding/35mmland.png') }}" alt="35mm Preview">
+                    <p>Traditional film photography capturing the richness and depth of analog imagery through a contemporary lens.</p>
+                    <a href="{{ url_for('thirtyfive_mm') }}" class="learn-more">View Gallery →</a>
+                </div>
+                <div class="photo-card">
+                    <h3>Cookbook</h3>
+                    <img src="{{ url_for('static', filename='Images/photolanding/cookland.png') }}" alt="Cookbook Preview">
+                    <p>A visual journey through culinary creation, where each photograph tells the story of flavor, texture, and artistic presentation.</p>
+                    <a href="{{ url_for('cookbook') }}" class="learn-more">View Preview →</a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const images = {% if section == 'polaroid' %}[
+            "{{ url_for('static', filename='Images/photography/Scan 27 copy 3.jpeg') }}",
+            "{{ url_for('static', filename='Images/photography/69CFFFD5-C6DE-4A2C-A78B-5B2D291FD040_1_102_a.jpeg') }}",
+            "{{ url_for('static', filename='Images/photography/Polaroid july 2024 copy 2.png') }}",
+            "{{ url_for('static', filename='Images/photography/Polaroid july 2024 copy.png') }}",
+            "{{ url_for('static', filename='Images/photography/Scan 27 copy 2.jpeg') }}",
+            "{{ url_for('static', filename='Images/photography/Scan 27 copy 4.jpeg') }}",
+            "{{ url_for('static', filename='Images/photography/Scan 30 copy.jpeg') }}",
+            "{{ url_for('static', filename='Images/photography/Toast w: Jam.png') }}"
+        ]{% elif section == '35mm' %}[
+            "{{ url_for('static', filename='Images/35mm/000036210021.jpg') }}",
+            "{{ url_for('static', filename='Images/35mm/000225670030.jpg') }}",
+            "{{ url_for('static', filename='Images/35mm/000501160016.jpg') }}",
+            "{{ url_for('static', filename='Images/35mm/17030021.JPG') }}",
+            "{{ url_for('static', filename='Images/35mm/17040004.JPG') }}",
+            "{{ url_for('static', filename='Images/35mm/17060011.JPG') }}"
+        ]{% else %}[]{% endif %};
+
+        let currentImageIndex = 0;
+        const currentImage = document.getElementById('currentImage');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function preloadImages() {
+            images.forEach((src) => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        function updateImage() {
+            if (currentImage) {
+                currentImage.style.opacity = 0;
+                setTimeout(() => {
+                    currentImage.src = images[currentImageIndex];
+                    currentImage.style.opacity = 1;
+                }, 300);
+            }
+        }
+
+        if (images.length > 0 && currentImage && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateImage();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateImage();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                }
+            });
+
+            preloadImages();
+        }
+    </script>
+</body>
+</html>

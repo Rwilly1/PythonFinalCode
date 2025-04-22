@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Remington Williams</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-gallery">
+            <div class="banner-container">
+                <img src="Images/Banner.jpg" alt="Portfolio Banner" class="banner-image">
+            </div>
+            <h1>Remington Williams</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
+                        <a href="{{ url_for('software_development') }}">Software Development</a>
+                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
+                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('photography') }}">Photography</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
+                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
+                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
+                    </div>
+                </li>
+                <li><a href="fashion.html">Fashion</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="about-content">
+        <section class="about-intro">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="Images/imageofme.jpeg" alt="Remington Williams" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <p style="margin-top: 0;">I am a multidisciplinary creative and emerging software developer based in
+                        New York City. Originally from the suburbs of Texas, my path took an
+                        unexpected turn when I was scouted to model while working as a
+                        dishwasher at Chipotle. That moment launched a career that has taken
+                        me around the world. I have lived in five different countries and
+                        draw constant inspiration from global culture and travel.
+                        <br>
+                        <br>
+                        Now focused on merging creativity with technology, I am passionate
+                        about using software development and UX/UI design to bring imaginative
+                        ideas to life. With a foundation in fashion and photography, I see code
+                        as another medium for expression that can be both functional and
+                        beautiful.</p>
+                
+            </div>
+        </section>
+        <section class="about-interests">
+            <div class="interest-grid">
+                <a href="tech_stack.html" class="interest-link">
+                    <div class="interest-item">
+                        <h3>Tech&nbsp;Stack</h3>
+                        <p>As a research assistant and software developer, I focus on human-centered design and build intuitive applications that blend creative thinking with technical skill, using tools like Python, Figma, and Blender.</p>
+                    </div>
+                </a>
+                <a href="photography.html" class="interest-link">
+                    <div class="interest-item">
+                        <h3>Photography</h3>
+                        <p>I shoot on 35mm film and Polaroid, drawn to their texture and honesty. Currently, I'm photographing my own cookbook, blending my love for food, design, and visual storytelling.</p>
+                    </div>
+                </a>
+                <a href="fashion.html" class="interest-link">
+                    <div class="interest-item">
+                        <h3>Fashion</h3>
+                        <p>I've been featured in Vogue Italia and Elle USA, traveling internationally for fashion week. This experience has shaped my eye for aesthetics and cross-cultural communication.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="about-section achievements">
+            <h2>Achievements & Affiliations</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <h3>PADI Certified</h3>
+                    <p class="achievement-details">Advance Open Water</p>
+                    <p class="achievement-date">August 2023</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>TX State Florists</h3>
+                    <p class="achievement-details">Level 1 Certification</p>
+                    <p class="achievement-date">June 2015</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Dean's List</h3>
+                    <p class="achievement-details">First Honors - 3.95 GPA</p>
+                    <p class="achievement-date">2024 – present</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Pace Photo Club</h3>
+                    <p class="achievement-details">Member</p>
+                    <p class="achievement-date">2025 – present</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Women in Tech</h3>
+                    <p class="achievement-details">Member</p>
+                    <p class="achievement-date">2024 – present</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

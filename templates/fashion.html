@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion - Remington Williams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-gallery">
+            <div class="banner-container">
+                <img src="{{ url_for('static', filename='Images/Banner.jpg') }}" alt="Portfolio Banner" class="banner-image">
+            </div>
+            <h1>Remington Williams</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Me</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
+                        <a href="{{ url_for('software_development') }}">Software Development</a>
+                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
+                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('photography') }}">Photography</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
+                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
+                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
+                    </div>
+                </li>
+                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="fashion-content">
+        <div class="flipbook-container">
+            <div class="flipbook-nav">
+                <button id="prevBtn" class="nav-btn">&lt;</button>
+                <div class="image-container">
+                    <img id="currentImage" src="{{ url_for('static', filename='Images/fashion/fashion27.jpg') }}" alt="Fashion Image">
+                </div>
+                <button id="nextBtn" class="nav-btn">&gt;</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const images = [
+            "{{ url_for('static', filename='Images/fashion/fashion27.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion3.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion4.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion5.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion6.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion8.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion9.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion10.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion12.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion14.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion15.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion16.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion18.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion19.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion20.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion23.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion24.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/fashion25.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/1999801-800w-1.jpg') }}",
+            "{{ url_for('static', filename='Images/fashion/remingtonwilliams-87414909-954316221633135-1379015340202247006-n-1591668875.avif') }}"
+        ];
+
+        let currentImageIndex = 0; 
+        const currentImage = document.getElementById('currentImage');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function preloadImages() {
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        function updateImage() {
+            currentImage.style.opacity = 0;
+            setTimeout(() => {
+                currentImage.src = images[currentImageIndex];
+                currentImage.style.opacity = 1;
+            }, 300);
+        }
+
+        preloadImages();
+        
+        prevBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateImage();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateImage();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

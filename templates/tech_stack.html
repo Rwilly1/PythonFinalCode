@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack - Remington Williams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-gallery">
+            <div class="banner-container">
+                <img src="{{ url_for('static', filename='Images/Banner.jpg') }}" alt="Portfolio Banner" class="banner-image">
+            </div>
+            <h1>Remington Williams</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Me</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
+                        <a href="{{ url_for('software_development') }}">Software Development</a>
+                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
+                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('photography') }}">Photography</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
+                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
+                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
+                    </div>
+                </li>
+                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="tech-stack-content">
+        {% if section == 'algorithmic' %}
+        <section class="tech-section algorithmic">
+            <div class="research-header">
+                <h2>How can shape grammar support computational thinking by enabling users to reconstruct knots through rule-based visual reasoning?</h2>
+                <p class="research-context">Computational thinking is often taught through text-based methods, which can be inaccessible for visual and kinesthetic learners. There is a growing need for hands-on tools that make algorithmic concepts more approachable. By applying shape grammar and semiotic pattern recognition to modular knot components, this research introduces a visual system that supports foundational skills in recursion, abstraction, and computational reasoning through spatial problem-solving.</p>
+            </div>
+
+            <div class="two-column-layout">
+                <div class="left-column">
+                    <div class="section-box literature">
+                        <h3>Literature Review</h3>
+                        <div class="literature-item">
+                            <p><strong>Knight and Stiny</strong> analyze the theoretical foundations of shape grammars, linking the computational properties of shapes to broader applications. Their work provides a framework for understanding how complex forms can be generated and manipulated through a set of rules.</p>
+                        </div>
+                        <div class="literature-item">
+                            <p><strong>Ham</strong> explores the concept of styles in design advocating for a playful, hands-on approach to learning and designing. This perspective highlights the value of experimentation and iteration in the design process.</p>
+                        </div>
+                        <div class="literature-item">
+                            <p><strong>Jonathan Williams</strong> expands on this by exploring algorithmic crafting through knotting. He emphasizes hands-on learning, where knotting serves as both craft and computation. His work shows how making can support experimentation, inspire design, and create connections between abstract algorithmic concepts and physical practice - highlighting the role of play in computational design.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-box methodology">
+                        <h3>Methodology</h3>
+                        <p>Research by design is a methodology where prototyping, testing, and reflection drive the creative process, allowing insights to emerge through making. Knot diagrams were first designed in Adobe Illustrator, then deconstructed into curved and straight segments to create the rope pieces. Developing and refining these knot puzzle sets became both a practical tool and a theoretical study. Each design cycle with participants improved the process to better model knot tying and recognize patterns and develop problem-solving strategies. The puzzles serve as both the product and method of research.</p>
+                        <div class="methodology-image">
+                            <img src="{{ url_for('static', filename='Images/poster images/5.png') }}" alt="Methodology Visualization">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="section-box testing">
+                        <h3>Iterative Testing</h3>
+                        <div class="testing-intro">
+                            <p>Participants were shown an image of a knot and asked to replicate it using the provided physical or digital knot puzzle pieces. Each round tested the participant's problem-solving strategies and how they visually compartmentalized the knot's crossings. Some participants approached the task sequentially, like a linear algorithm, while others started at the most complex node and worked outward.</p>
+                        </div>
+                        <div class="trial">
+                            <h4>Trial #1</h4>
+                            <div class="trial-content">
+                                <p>The preliminary round was held in person using paper pieces to represent individual knot components. Figure 1.0 displays the eight unique segments users were given. Users consistently relied on three pieces to replicate knots. The paper required gentle stacking and lacked the stability to hold the knot's form permanently.</p>
+                                <div class="trial-image">
+                                    <img src="{{ url_for('static', filename='Images/poster images/figure1.jpeg') }}" alt="Trial 1 Knot Components">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trial">
+                            <h4>Trial #2</h4>
+                            <div class="trial-content">
+                                <p>The second test was conducted over Zoom using digital knot puzzle pieces. The prototype addressed some of the initial concerns by making the pieces easier to manipulate and simplifying the piece set. Figure 2.0 shows a user correctly identifying an overhand knot crossing. Figure 2.1 presents a more advanced challenge, where the user successfully completed the slip knot by working through each defining crossing. One user cut a curved piece in half. This created a more versatile rope segment and proved even fewer of pieces allowed for greater flexibility in abstraction, recursion, and visual reasoning.</p>
+                                <div class="trial-images">
+                                    <img src="{{ url_for('static', filename='Images/poster images/figure2.png') }}" alt="Trial 2 Simple Knot">
+                                    <img src="{{ url_for('static', filename='Images/poster images/figure2.1.png') }}" alt="Trial 2 Complex Knot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-sections">
+                <div class="section-box results">
+                    <h3>Results</h3>
+                    <p>This research provides evidence that participants were able to identify recurring patterns and modular segments, indicating an intuitive grasp of the underlying structure and logic of the knots without any prior knowledge of knot tying. User testing reinforced the applicability of shape grammar to knot construction, showing how participants could use modular reasoning to interpret and rebuild knots through a rule-based visual system.</p>
+                    <div class="result-image">
+                        <img src="{{ url_for('static', filename='Images/poster images/3.png') }}" alt="Final Results Visualization">
+                    </div>
+                </div>
+
+                <div class="section-box future">
+                    <h3>Future Research</h3>
+                    <p>An additional round of user testing will use a refined puzzle set that features more adaptable curved pieces to better represent the complexity of knot segments. Experiments will explore the use of negative space within the puzzle design to investigate whether emphasizing voids changes how participants approach problem-solving. New connector pieces that simulate the working ends of a knot will also be developed to streamline the assembly process and provide further insight into how users sequence and model their reasoning.</p>
+                    <div class="future-image">
+                        <img src="{{ url_for('static', filename='Images/poster images/4.png') }}" alt="Future Research Direction">
+                    </div>
+                </div>
+            </div>
+
+            <footer class="research-footer">
+                <h4>References</h4>
+                <ul>
+                    <li>Ham, D. (2013). Styles. Play + Learn + Design. DerekHam.com. <a href="https://derekham.com/styles.html" target="_blank">https://derekham.com/styles.html</a></li>
+                    <li>Knight, T., & Stiny, G. (2015). Making grammars: From computing with shapes to computing with things. Design Studies, 41(November 2015): 8–28. <a href="https://dspace.mit.edu/bitstream/handle/1721.1/111993/Knight%20&%20Stiny-Making%20Grammars.pdf" target="_blank">View PDF</a></li>
+                    <li>NC State Online. (2024, April 25). 'Knot' Your Average Approach to Design Education. <a href="https://online-distance.ncsu.edu/2024/04/25/knot-your-average-approach-to-design-education/" target="_blank">Read Article</a></li>
+                </ul>
+            </footer>
+        </section>
+        {% elif section == 'design' %}
+        <section class="tech-section design">
+            <div class="section-header">
+                <h2>Design Tools</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skills-section">
+                    <h3>Adobe Creative Suite</h3>
+                    <p>Photoshop, Illustrator, After Effects, Animate, InDesign, Lightroom, Premier Pro, Acrobat</p>
+                </div>
+                <div class="skills-section">
+                    <h3>Design Platforms</h3>
+                    <p>Figma, Canva, Blender, Miro, Sketch, Framer, Krita, Procreate</p>
+                </div>
+                <div class="skills-section">
+                    <h3>UI/UX Design</h3>
+                    <p>User Research, Wireframing, Prototyping, User Testing, Information Architecture</p>
+                </div>
+                <div class="skills-section">
+                    <h3>Traditional Mediums</h3>
+                    <p>Drawing, Painting, Resin Art, Sculpting, Print Making, Photography, Knot Tying, Calligraphy</p>
+                </div>
+            </div>
+
+            <div class="certifications-section">
+                <h3>Job Simulation Certification</h3>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="{{ url_for('static', filename='Images/accenture-8.svg') }}" alt="Accenture Logo">
+                    </div>
+                    <div class="cert-content">
+                        <h4>Accenture - Product Design</h4>
+                        <p>Upgraded the user experience by designing 3 new application features, refined an existing product screen using Figma.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-section">
+                <h3>Professional Experience</h3>
+                <div class="project-card">
+                    <div class="project-emoji">🎨</div>
+                    <div class="project-content">
+                        <h4><a href="https://www.hellonewfam.com/" target="_blank" class="company-link">New Familiar Creative</a> - UX/UI Product Design Internship</h4>
+                        <p>Designed user-centered ad tech integration, collaborated on product design, and improved engagement by 60%. Applied UX/UI best practices and data analysis to enhance usability and drive the performance of digital advertising campaigns.</p>
+                        <div class="project-meta">New York, NY • June 2022 – August 2022</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🌈</div>
+                    <div class="project-content">
+                        <h4>Solo Art Show - Seven House Gallery</h4>
+                        <p>Shredding My True Colors is an abstract reflection on the tension between teenage identity and the remnants of youth. I used fluid acrylics layered with melted memorabilia from my experience of homelessness, sealing everything in resin to create the illusion that the pieces are never fully dry. The work captures memories in a suspended, in-between state—fragmented, fluid, and unresolved—echoing the blurred line between who I was and who I was forced to become.</p>
+                        <div class="project-meta">September 2022 – October 2022</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% elif section == 'software' %}
+        <section class="tech-section software">
+            <div class="section-header">
+                <h2>Software Development</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skills-section">
+                    <h3>Programming Languages</h3>
+                    <p>Python, SQL, HTML, CSS, C++,JavaScript, Ruby</p>
+                </div>
+                <div class="skills-section">
+                    <h3>Software & IDEs</h3>
+                    <p>Microsoft Office Suite, VirtualBox, Visual Studio Code, PyCharm, Ruby on Rails, Cascade AI</p>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Database Management</h3>
+                    <p>Microsoft Access, MySQL, SQLite, MongoDB, Oracle Virtual Machine</p>
+                </div>
+                <div class="skills-section">
+                    <h3>QA Testing</h3>
+                    <p>Database integrity, bug resolution, bash scripting, User Surveys, cross-browser & cross-device testing</p>
+                </div>
+                
+            </div>
+            <div class="certifications-section">
+                <h3>Job Simulation Certification</h3>
+                <div class="cert-card">
+                    <div class="cert-logo">
+                        <img src="{{ url_for('static', filename='Images/Electronic_Arts_Logo_2020.png') }}" alt="Electronic Arts Logo">
+                    </div>
+                    <div class="cert-content">
+                        <h4>Electronic Arts - Software Engineering</h4>
+                        <p>Developed a new feature for EA Sports College Football, creating a C++ class diagram and header file, implementing an improved data structure for performance, and patching critical bugs in the codebase.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-section">
+                <h3>Academic Projects</h3>
+                <div class="project-card">
+                    <div class="project-emoji">🌊</div>
+                    <div class="project-content">
+                        <h4>Ocean Conservancy Website</h4>
+                        <p>Developed a responsive website for an ocean conservation non-profit using HTML, CSS, and JavaScript. Implemented interactive features for donation tracking, marine life education, and volunteer sign-up while maintaining accessibility standards.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🥗</div>
+                    <div class="project-content">
+                        <h4>Low FODMAP Access Database Application</h4>
+                        <p>Built an Access application designed to assist individuals with chronic gastrointestinal illnesses in adhering to the low-FODMAP diet, including variables such as allergies, users, recipes, grocery lists, and ingredients.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">📸</div>
+                    <div class="project-content">
+                        <h4>Polaroid Iterator Pattern Project</h4>
+                        <p>Engineered a Python application using the Gang of Four Iterator pattern to analyze lens specifications and exposure settings, providing intelligent recommendations for optimal Polaroid camera configurations across different shooting conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </section>
+        {% elif section == 'streamlit' %}
+        <section class="tech-section streamlit">
+            <div class="section-header">
+                <h2>Streamlit Applications</h2>
+            </div>
+            <div class="streamlit-intro">
+                <p>Streamlit is a powerful Python-based framework that enables rapid development of data applications and interactive web tools. With unlimited server space for free applications, it's an ideal platform for deploying and sharing data-driven projects. While applications may require occasional rebooting if inactive for extended periods, Streamlit remains a versatile tool with endless possibilities for creating interactive dashboards, data visualizations, and web applications.</p>
+                <p>Streamlit's seamless integration with Snowflake, a cloud data platform, enhances its capabilities by providing robust data warehousing and analytics features. This combination allows for efficient handling of large-scale data operations while maintaining the simplicity of Python-based development.</p>
+            </div>
+
+            <div class="streamlit-grid">
+                <div class="streamlit-card">
+                    <h3>Recipe Browser</h3>
+                    <div class="app-preview">
+                        <img src="{{ url_for('static', filename='Images/streamlit/recipe.png') }}" alt="Recipe Browser App Preview" class="app-screenshot">
+                        <div class="app-overlay">
+                            <p>Browse and discover recipes with an interactive interface.</p>
+                            <a href="https://recipebrowser.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="streamlit-card">
+                    <h3>Clothing Converter</h3>
+                    <div class="app-preview">
+                        <img src="{{ url_for('static', filename='Images/streamlit/sizeconvert.png') }}" alt="Size Converter App Preview" class="app-screenshot">
+                        <div class="app-overlay">
+                            <p>Convert clothing sizes between different international standards.</p>
+                            <a href="https://international-size-converter.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                        </div>
+                    </div>
+                </div>  
+                <div class="streamlit-card">
+                    <h3>Scuba Dive Calculator</h3>
+                    <div class="app-preview">
+                        <img src="{{ url_for('static', filename='Images/streamlit/scuba.png') }}" alt="Scuba Dive Calculator Preview" class="app-screenshot">
+                        <div class="app-overlay">
+                            <p>Calculate dive parameters and safety information.</p>
+                            <a href="https://scubadivemidterm.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <section class="tech-section overview">
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h2>Research Assistant</h2>
+                    <p>Exploring educational computing through tactile, craft-based systems that bridge design, logic, and user interaction at Pace University, under the guidance of Jonathan Williams.</p>
+                    <a href="{{ url_for('algorithmic_crafting') }}" class="learn-more">Learn More →</a>
+                </div>
+                <div class="tech-card">
+                    <h2>Software Development</h2>
+                    <p>Building interactive tools with a focus on UX, accessibility, and meaningful experiences using Python, SQL, HTML, CSS,JavaScript, C++, and Ruby.</p>
+                    <a href="{{ url_for('software_development') }}" class="learn-more">Learn More →</a>
+                </div>
+                <div class="tech-card">
+                    <h2>Streamlit Applications</h2>
+                    <p>Creating intuitive, Python-based apps that visualize complex systems—from scuba logs to international size converters.</p>
+                    <a href="{{ url_for('streamlit_applications') }}" class="learn-more">Learn More →</a>
+                </div>
+                <div class="tech-card">
+                    <h2>Design Tools</h2>
+                    <p>Bringing a creative edge to technical work through Figma, Blender, Illustrator, and hands-on design strategies.</p>
+                    <a href="{{ url_for('design_tools') }}" class="learn-more">Learn More →</a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
