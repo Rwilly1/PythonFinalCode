@@ -1,65 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remington Williams - Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="header-gallery">
-            <div class="banner-container">
-                <img src="{{ url_for('static', filename='Images/Banner.jpg') }}" alt="Portfolio Banner" class="banner-image">
-            </div>
-            <h1>Remington Williams</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About Me</a></li>
-                <li class="dropdown">
-                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
-                        <a href="{{ url_for('software_development') }}">Software Development</a>
-                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
-                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="{{ url_for('photography') }}">Photography</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
-                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
-                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
-                    </div>
-                </li>
-                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "template.html" %}
 
-    <main class="polaroid-gallery">
+{% block content %}
+    <div class="polaroid-gallery">
         <div class="scattered-polaroids">
-            <img src="{{ url_for('static', filename='Images/Polaroid Scattered 2.jpeg') }}" alt="Scattered Polaroid Images" class="scattered-image">
+            <img src="/static/Images/Polaroid Scattered 2.jpeg" alt="Scattered Polaroid Images" class="scattered-image">
             <div class="video-container">
                 <video width="100%" height="auto" controls preload="metadata">
-                    <source src="{{ url_for('static', filename='video/cropped-recording.mp4') }}" type="video/mp4">
+                    <source src="/static/video/cropped-recording.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
-        </div>
-        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+    </div>
+{% endblock %}

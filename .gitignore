@@ -2,6 +2,13 @@
 __pycache__/
 *.py[cod]
 *$py.class
+node_modules/
+dist/
+.env
+portfolio-media.zip
+windsurf_deployment.yaml
+*.pyc
+.DS_Store
 *.so
 .Python
 env/
@@ -30,18 +37,13 @@ ENV/
 *.swp
 *.swo
 
-# Media files
+# Media files (excluding video)
 static/Images/
-static/video/
 *.jpg
 *.jpeg
 *.png
 *.gif
 *.svg
-*.mp4
-*.mov
-*.avi
-*.webm
 *.avif
 
 # OS generated files
@@ -52,3 +54,6 @@ static/video/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Local Netlify folder
+.netlify

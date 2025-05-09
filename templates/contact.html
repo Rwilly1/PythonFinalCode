@@ -1,65 +1,24 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Remington Williams</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="header-gallery">
-            <div class="banner-container">
-                <img src="Images/Banner.jpg" alt="Portfolio Banner" class="banner-image">
-            </div>
-            <h1>Remington Williams</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About Me</a></li>
-                <li class="dropdown">
-                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
-                        <a href="{{ url_for('software_development') }}">Software Development</a>
-                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
-                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="{{ url_for('photography') }}">Photography</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
-                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
-                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
-                    </div>
-                </li>
-                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "template.html" %}
 
-    <main class="contact-content">
-        <h2>Contact Me</h2>
-        <div class="contact-info">
-            <p>I'm always interested in connecting with fellow creatives, technologists, and potential collaborators. Whether you're interested in my work, have a project in mind, or just want to say hello, I'd love to hear from you.</p>
-        </div>
-        <div class="contact-links">
-            <div class="contact-card">
-                <h3>Email</h3>
-                <a href="mailto:rw53783n@pace.edu">rw53783n@pace.edu</a>
+{% block content %}
+    <main class="about-content">
+        <section class="about-intro">
+            <h2>Contact Me</h2>
+            <div class="about-text">
+                <p>I'm always interested in connecting with fellow creatives, technologists, and potential collaborators. Whether you're interested in my work, have a project in mind, or just want to say hello, I'd love to hear from you.</p>
             </div>
-        </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="polaroid-container">
+                <div class="polaroid-overlay">
+                    <img src="/static/images/contactImage.jpg" alt="Empty Polaroid Frame" class="polaroid-frame">
+                    <div class="email-content">
+                        <h3>Email</h3>
+                        <a href="mailto:rw53783n@pace.edu" class="email-link">rw53783n@pace.edu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <footer>
-        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
-        </div>
-        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

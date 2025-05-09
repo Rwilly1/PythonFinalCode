@@ -1,45 +1,54 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Remington Williams</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Remington Williams</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <header>
         <div class="header-gallery">
             <div class="banner-container">
-                <img src="Images/Banner.jpg" alt="Portfolio Banner" class="banner-image">
+                <img src="/static/Images/Banner.jpg" alt="Portfolio Banner" class="banner-image">
             </div>
             <h1>Remington Williams</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Me</a></li>
                 <li class="dropdown">
-                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+                    <a href="/tech_stack.html">Tech Stack</a>
                     <div class="dropdown-content">
-                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
-                        <a href="{{ url_for('software_development') }}">Software Development</a>
-                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
-                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
+                        <a href="/algorithmic_crafting.html">Research Assistant</a>
+                        <a href="/software_development.html">Software Development</a>
+                        <a href="/streamlit_applications.html">Streamlit Applications</a>
+                        <a href="/design_tools.html">Design Tools</a>
                     </div>
                 </li>
-                <li><a href="photography.html">Photography</a></li>
-                <li><a href="fashion.html">Fashion</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="/photography.html">Photography</a>
+                    <div class="dropdown-content">
+                        <a href="/polaroid.html">Polaroid</a>
+                        <a href="/cookbook.html">Cookbook</a>
+                        <a href="/35mm.html">35mm</a>
+                    </div>
+                </li>
+                <li><a href="/fashion.html">Fashion</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    </main>
-    </main>
+    {% block content %}
+    {% endblock %}
 
     <footer>
         <div class="social-links">
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a> | <a href="https://github.com" target="_blank">GitHub</a> | <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
         </div>
         <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
     </footer>

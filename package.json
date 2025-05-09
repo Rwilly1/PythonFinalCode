@@ -1,0 +1,10 @@
+{
+  "name": "remington-williams-portfolio",
+  "version": "1.0.0",
+  "description": "Remington Williams Portfolio Site",
+  "main": "netlify/functions/server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  }
+}
