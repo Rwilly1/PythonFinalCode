@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Stack - Remington Williams</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="header-gallery">
-            <div class="banner-container">
-                <img src="{{ url_for('static', filename='Images/Banner.jpg') }}" alt="Portfolio Banner" class="banner-image">
-            </div>
-            <h1>Remington Williams</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About Me</a></li>
-                <li class="dropdown">
-                    <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('algorithmic_crafting') }}">Research Assistant</a>
-                        <a href="{{ url_for('software_development') }}">Software Development</a>
-                        <a href="{{ url_for('streamlit_applications') }}">Streamlit Applications</a>
-                        <a href="{{ url_for('design_tools') }}">Design Tools</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="{{ url_for('photography') }}">Photography</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('polaroid') }}">Polaroid</a>
-                        <a href="{{ url_for('cookbook') }}">Cookbook</a>
-                        <a href="{{ url_for('thirtyfive_mm') }}">35mm</a>
-                    </div>
-                </li>
-                <li><a href="{{ url_for('fashion') }}">Fashion</a></li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "template.html" %}
+
+{% block content %}
 
     <main class="tech-stack-content">
         {% if section == 'algorithmic' %}
@@ -295,6 +255,60 @@
                 </div>
             </div>
         </section>
+        {% elif section == 'software' %}
+        <section class="tech-section software">
+            <h2>Software Development</h2>
+            <p>Building interactive tools with a focus on UX, accessibility, and meaningful experiences using Python, SQL, HTML, CSS, JavaScript, C++, and Ruby.</p>
+            <div class="software-projects">
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A responsive portfolio built with Flask and deployed on Netlify, featuring dynamic content management and clean design.</p>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% elif section == 'streamlit' %}
+        <section class="tech-section streamlit">
+            <h2>Streamlit Applications</h2>
+            <p>Creating intuitive, Python-based apps that visualize complex systems—from scuba logs to international size converters.</p>
+            <div class="streamlit-projects">
+                <div class="project-card">
+                    <h3>Recipe Browser</h3>
+                    <p>A Streamlit app for browsing and discovering recipes with an interactive interface.</p>
+                    <a href="https://recipebrowser.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Clothing Converter</h3>
+                    <p>Convert clothing sizes between different international standards.</p>
+                    <a href="https://international-size-converter.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Scuba Dive Calculator</h3>
+                    <p>Calculate dive parameters and safety information.</p>
+                    <a href="https://scubadivemidterm.streamlit.app/" target="_blank" class="app-link">Launch App →</a>
+                </div>
+            </div>
+        </section>
+        {% elif section == 'design' %}
+        <section class="tech-section design">
+            <h2>Design Tools</h2>
+            <p>Bringing a creative edge to technical work through Figma, Blender, Illustrator, and hands-on design strategies.</p>
+            <div class="design-projects">
+                <div class="project-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive user interfaces and experiences using Figma and Adobe Creative Suite.</p>
+                </div>
+                <div class="project-card">
+                    <h3>3D Modeling</h3>
+                    <p>Developing 3D models and animations using Blender for interactive applications.</p>
+                </div>
+            </div>
+        </section>
         {% else %}
         <section class="tech-section overview">
             <div class="tech-grid">
@@ -323,12 +337,4 @@
         {% endif %}
     </main>
 
-    <footer>
-        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/remington-williams/" target="_blank">LinkedIn</a> | <a href="https://github.com/Rwilly1" target="_blank">GitHub</a> | <a href="https://www.instagram.com/remingtonwilliams_/" target="_blank">Instagram</a>
-        </div>
-        <p>&copy; 2025 Remington Williams. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}
